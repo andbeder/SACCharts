@@ -1,0 +1,74 @@
+<template>
+    <lightning-card  title="Filters">
+        <table>
+            <tbody>
+                <tr>
+                    <td width="25%">
+                        <lightning-dual-listbox name="AMC"
+                        label="AMCs"
+                        source-label="Available"
+                        selected-label="Selected"
+                        field-level-help="Select AMCs to filter to"
+                        options={amcOptions}
+                        onchange={handleAMCChange}></lightning-dual-listbox>
+                    </td>
+                    <td width="25%">
+                        <lightning-dual-listbox name="Division"
+                        label="Divisions"
+                        source-label="Available"
+                        selected-label="Selected"
+                        field-level-help="Select Divisions to filter to"
+                        options={divisionOptions}
+                        onchange={handleDivisionChange}></lightning-dual-listbox>
+                    </td>
+                    <td width="25%">
+                        <lightning-dual-listbox name="Claim Type"
+                        label="Claim Type"
+                        source-label="Available"
+                        selected-label="Selected"
+                        field-level-help="Select Claim Types to filter to"
+                        options={claimTypeOptions}
+                        onchange={handleClaimTypeChange}></lightning-dual-listbox>
+                    </td>
+                    <td>
+                        <lightning-combobox
+                            name="progress"
+                            label="Risk Pool"
+                            value="in all"
+                            placeholder="Select Risk Pool"
+                            options={riskPoolOptions}
+                            onchange={handleRiskPoolChange}></lightning-combobox>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><lightning-button variant="brand" label="Render" title="Primary action" onclick={filtersUpdated} class="slds-var-m-left_x-small"></lightning-button></td>
+                </tr>
+            </tbody>
+        </table>
+    </lightning-card>
+
+    <lightning-card title="Chart Series A" icon-name="custom:custom1">
+        <table>
+            <tbody>
+            <tr>
+                <td style="width:50%"><div data-id="apexchart" class="chart1 slds-var-m-around_medium" lwc:dom="manual"></div></td>
+                <td style="width:50%"><div data-id="apexchart" class="chart2 slds-var-m-around_medium" lwc:dom="manual"></div></td>
+            </tr>
+        </tbody>
+        </table>
+    </lightning-card>
+
+    <lightning-card title="Chart Series B &amp; C" icon-name="custom:custom1">
+        <table>
+            <tbody>
+            <tr>
+                <td style="width:50%"><div data-id="apexchart" class="chartB slds-var-m-around_medium" lwc:dom="manual"></div></td>
+                <td style="width:50%"><div data-id="apexchart" class="chartC slds-var-m-around_medium" lwc:dom="manual"></div></td>
+            </tr>
+        </tbody>
+        </table>
+        
+    </lightning-card>
+
+
+</template>
