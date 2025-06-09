@@ -12,7 +12,7 @@ SAC Charts is a Lightning application for Salesforce that provides interactive c
    - Execute SAQL queries to retrieve chart data.
    - Allow dynamic assembly of SAQL queries based on filter selections.
 3. **User Filters**
-   - Provide selectable filters for AMC, division, risk pool, and claim type.
+   - Provide selectable filters for host, nation, season, and ski.
    - Update chart results when filters change.
 4. **Chart Configuration**
    - Accept customization parameters for colors, titles, and layout.

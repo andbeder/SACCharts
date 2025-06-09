@@ -3,6 +3,8 @@
 ## Overview
 SAC Charts is built as a Salesforce DX project. It uses Lightning Web Components (LWCs) to render charts in the Salesforce UI. Chart data is fetched from CRM Analytics datasets using the `analyticsWaveApi` module, and the visuals are produced through the ApexCharts JavaScript library delivered as a static resource.
 
+The default dataset for the application is **exped**, which contains climbing expedition information. Filters and queries are executed against this dataset in the sandbox environment.
+
 The application is structured to allow rapid configuration of new charts by providing SAQL queries and chart options as parameters.
 
 ## High-Level Architecture
@@ -38,7 +40,7 @@ The application is structured to allow rapid configuration of new charts by prov
 - `DPOStateMachine` exists as a placeholder Apex class (currently empty). Server-side logic can be added here as needed. Any Apex test classes should reside under `force-app/test`.
 
 ## Data Flow
-1. **User Interaction** – Users select filter values (e.g., AMC, Division) via the UI.
+1. **User Interaction** – Users select filter values (e.g., host, nation, season, ski) via the UI.
 2. **SAQL Assembly** – Components construct SAQL queries based on selected filters and dataset ID.
 3. **Query Execution** – The LWC calls `executeQuery` from `analyticsWaveApi` to run the SAQL query against CRM Analytics.
 4. **Chart Rendering** – Retrieved records are mapped into chart series and categories, then passed to ApexCharts for rendering.
