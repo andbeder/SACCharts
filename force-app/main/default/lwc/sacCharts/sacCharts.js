@@ -549,56 +549,63 @@ export default class SacCharts extends LightningElement {
         }
     }
 
-    chartAOptions = {
-        chart: {
-            type: 'bar',
-            height: 410
-        },
-        series: [],
-        plotOptions: {
-            bar: {
-                columnWidth: '85%',
-                dataLabels: {
-                    position: 'top'
-                }
-            },
-        },
-        colors: ['#002060'],
-        dataLabels: {
+chartAOptions = {
+    chart: {
+        type: 'bar',
+        height: 410,
+        dropShadow: {
             enabled: true,
-            offsetY: 10,
+            color: '#000',
+            top: 5,
+            left: 3,
+            blur: 3,
+            opacity: 0.2
+        }
+    },
+    series: [],
+    plotOptions: {
+        bar: {
+            // Slimmed down by 20% (85% → 68%)
+            columnWidth: '68%',
+            dataLabels: {
+                position: 'top'
+            }
+        }
+    },
+    colors: ['#002060'],
+    dataLabels: {
+        enabled: true,
+        offsetY: 10,
+        style: {
+            fontSize: '12px',
+            colors: ["#FFFFFF"]
+        }
+    },
+    title: {
+        text: 'Reported Cases by Quarter - ',
+        align: 'center'
+    },
+    xaxis: {
+        labels: {
+            formatter: function (timestamp) {
+                var date = new Date(timestamp);
+                var quarter = Math.floor((date.getMonth() + 3) / 3);
+                return "Q" + quarter;
+            }
+        },
+        group: {
             style: {
                 fontSize: '12px',
-                colors: ["#FFFFFF"]
+                fontWeight: 700
             }
-        },
-        title: {
-            text: 'Reported Cases by Quarter - ',
-            align: 'center'
-        },
-        xaxis: {
-            labels: {
-                formatter: function (timestamp) {
-                    var date = new Date(timestamp);
-                    var quarter = Math.floor((date.getMonth() + 3) / 3);
-                    //return date.getFullYear() + " Q" + quarter;
-                    return "Q" + quarter;
-                }
-            },
-            group: {
-                style: {
-                    fontSize: '12px',
-                    fontWeight: 700
-                }
-            }
-        },
-        fill: {
-            opacity: 1
-
-        },
-        noData: {
-            text: 'Loading...'
         }
-    };
+    },
+    fill: {
+        opacity: 1
+    },
+    noData: {
+        text: 'Loading...'
+    }
+};
 
 }
